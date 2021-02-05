@@ -1,4 +1,4 @@
-# 들어가면서
+# 📚 들어가면서
    
 [1. JVM](#jvm)   
 [2. 컴파일하는방법](#컴파일-하는-방법)        
@@ -9,7 +9,7 @@
 [7. 라이브 강의](#라이브-강의)      
    
    
-# JVM 
+# 📕 JVM 
 > **Java Virtual Machine**의 약자로 OS에 맞는 Java 런타임 환경을 제공하는 가상머신이다.     
            
 * `자바 애플리케이션`을 `클래스 로더`를 통해 읽어 들여 `자바 API`와 함께 **실행**한다.           
@@ -17,7 +17,7 @@
 * **메모리 관리**, **Garbage collection**을 수행한다.       
 * 스택기반의 가상 머신으로 LIFO 원칙으로 동작한다.           
     
-## Write once, run anywhere         
+## 📖 Write once, run anywhere         
 <img width="802" alt="스크린샷 2021-01-04 오후 12 21 12" src="https://user-images.githubusercontent.com/50267433/103498244-6101ee00-4e87-11eb-91ef-f3af5c0606e6.png">   
      
 **플랫폼 종속성**   
@@ -38,7 +38,7 @@ JVM이 등장하기 이전에는 **플랫폼 종속성으로 인해 OS마다 명
 `Kotlin`으로 작성한 내용이 결국에 JVM에 의해 `ByteCode`로 변환되기 때문이다.          
 즉, 이전 소스코드가 무엇이었든간에 JVM에서 `ByteCode`를 해석해서 명령을 내리기 때문이다.           
      
-## ByteCode
+## 📖 ByteCode
 > 특정 하드웨어가 아닌 VM에서 돌아가는 실행 프로그램을 위한 이진법으로 표현된 코드    
      
 하나의 명령어의 크기가 1Byte(8bit)라서 ByteCode라고 부른다.        
@@ -67,7 +67,7 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
 ![ByteCode.png](./images/ByteCode.png)
    
 
-# JVM 구성 요소
+# 📗 JVM 구성 요소
 
 ![JVMProcess.png](./images/JVMProcess.png)
 
@@ -81,23 +81,23 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
 * JIT Compiler : 자바 바이트코드를 기계어로 변환시키는 역할     
 * Garbage Collect : 더 이상 사용되지 않는 메모리를 해제해주는 역할   
        
-## Class Loader(클래스 로더)         
+## 📖 Class Loader(클래스 로더)         
 * JVM내로 클래스`(.class)`를 로드하고, 링크를 통해 배치 작업을 수행하는 모듈.            
 * Runtime 시에 동적으로 클래스를 로드한다. (다이나믹 디스패치)          
 * jar파일 내 저장된 클래스들을 JVM내의 런타임 데이터 영역에 배치한다.    
 * 사용 안하는 클래스는 메모리에서 해제한다.              
 * 쉽게 말하면, 클래스를 처음으로 참조할 때 해당 클래스를 로드하고 링크한다.   
        
-## Execution Engine (실행 엔진)      
+## 📖 Execution Engine (실행 엔진)      
 * 로드된 클래스 파일의 바이트코드를 실행하는 런타임 모듈         
 * 바이트코드를 실제로 JVM내에서 실행할 수 있는 형태로 변경한다.          
-### Interpreter(인터 프리터)        
+### 📄 Interpreter(인터 프리터)        
   * 바이트코드를 명령어 단위로 읽어서 실행한다.        
   * 단, 한 줄씩 수행하기 때문에 느리다.           
-### JIT(Just - in - time)        
+### 📄 JIT(Just - in - time)        
   * 바이트코드 전체를 컴파일하여 기계어로 변경하고, 이후에는 기계어 코드로 직접 실행하는 방식이다.         
   * JIT 컴파일러가 컴파일하는 과정은 오래걸리므로 한 번만 실행되는 코드라면 인터 프리팅이 유리하다.      
-### Garbage collector      
+### 📄 Garbage collector      
   메모리가 부족할 때 사용되지 않는 메모리를 해제해준다.      
   메모리 부족 요청시 실행 또는 JVM이 한가할 때 동작한다.     
   GC의 동작시간은 일정하게 정해져 있지 않기 때문에     
@@ -108,23 +108,23 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
   특히, Full GC가 일어나는 수 초간 모든 Thread가 정지한다면      
   심각한 장애로 이어질 수 있다.        
             
-## Runtime Data Area**          
+## 📖 Runtime Data Area          
 * 프로그램을 수행하기 위해 OS에서 할당받은 메모리 공간     
-* **PC Register :**        
+### 📄 PC Register       
   Thread가 시작될때 생성되는 공간으로 Thread마다 하나씩 존재한다.         
   Thread가 어떤 부분을 어떤 명령어로 실행해야할 지에 대한 기록을 한다.     
   현재 수행중인 JVM 명령의 주소를 갖는다.         
-* **JVM 스택영역 :**         
+### 📄 JVM 스택영역         
   프로그램 실행과정에서 임시로 할당되었다가     
   메서드를 빠져나가면 바로 소멸되는 데이터를 저장하기 위한 영역이다.          
   메서드 호출 시 각각의 스택 프레임(해당 메스드만을 위한 공간)이 생성되며     
   이 안에 각종 형태의 변수나 임시 데이터, 스레드나 메서드 정보를 저장한다.       
   메서드 수행이 끝나면 프레임 별로 삭제를 진행한다.             
-* **Native method stack :**           
+### 📄 Native method stack :**           
   바이트코드가 아닌 기계어로 작성된 프로그램을 실행시키는 영역이다.       
   JAVA가 아닌 다른 언어로 작성된 코드를 위한 공간이다.           
   커널이 스택을 잡아 독자적으로 프로그램을 실행시킨다.           
-* **Method Area(class area/static area) :**           
+### 📄 Method Area(class area/static area) :**           
   클래스를 처음 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간이다.     
   Runtime Constant Pool이라는 상수 자료형을 저장 및 참조하여     
   중복을 막는 별도의 관리 영역도 함께 존재한다.   
@@ -138,7 +138,7 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
   class인지 interface인지의 여부 저장    
   Type의 속성, 전체 이름, super class의 전체 이름      
     
-* **Heap 영역 :**        
+### 📄 Heap 영역 :**        
 클래스가 아닌 객체를 저장하는 가상 메모리 공간이다.           
 new 연산자로 생생된 객체와 배열을 저장한다.           
 Method area 영역에 올라온 클래스들만 객체로 생성할 수 있지만        
