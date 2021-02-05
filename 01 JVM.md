@@ -68,8 +68,9 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
    
 
 ## JVM 구성 요소
-![](https://images.velog.io/images/kwj1270/post/bf625190-c35f-48dd-bdfc-bcc0f038c31e/JVM%20%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9.jpeg)      
-   
+
+![JVMProcess.png](./images/JVMProcess.png)
+
 * Java source : 사용자가 정의한 자바 파일    
 * Compiler : 자바를 클래스 파일로 변환   
 * ByteCode : 클래스 파일들   
