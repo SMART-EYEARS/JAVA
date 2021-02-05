@@ -54,17 +54,18 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
 이러한 `.class` 파일들은 `.java` 파일로 **역 컴파일**할 수 있으며 이를 통해           
 개발자들은 컴파일 타임에서 발생하는 여러 작업과 변경사항을 눈으로 확인할 수 있다.           
       
+* CLI 기준 :  `javap -c FQCN_클래스파일`    
          
 ![ByteCodeCLI.png](./images/ByteCodeCLI.png)	    
    
-* CLI 기준 :  `javap -c FQCN_클래스파일` 
 
-![ByteCode.png](./images/ByteCode.png)
-   
 * Mac + IntelliJ 기준 :              
   1. 소스코드에 커서를 위치시킨다.     
   2. `command + shift + a`를 누른다.  
   3. Actions 탭에서 `Show Bytecode`를 입력후 누른다.        
+
+![ByteCode.png](./images/ByteCode.png)
+   
 
 
 ## JVM 동작 과정   
