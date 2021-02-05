@@ -38,83 +38,7 @@ JVM이 등장하기 이전에는 **플랫폼 종속성으로 인해 OS마다 명
 `Kotlin`으로 작성한 내용이 결국에 JVM에 의해 `ByteCode`로 변환되기 때문이다.          
 즉, 이유가 어쨌든 JVM에서 `ByteCode`를 해석해서 명령을 내리기 때문이다.           
      
-# 컴파일 하는 방법   
-> **Compile :** 사람이 이해할 수 있는 언어를 컴퓨터가 이해할 수 있는 언어로 바꿔주는 과정을 말한다.           
-> **Java에서는 :** `.java 파일`을 `.class 파일`로 변환하는 과정을 의미한다.           
-> 즉, 컴퓨터가 이해할 수 있는 언어가 아닌 JVM이 이해할 수 있는 코드로 변환하는 과정    
-     
-**`.java 파일` :** Java 언어로 작성한 파일     
-**`.class 파일` :** Java 파일을 JVM이 이해할 수 있는 언어로 변환한 파일     
-   
-```cmd     
-> javac [ options ] [ sourcefiles ] [ classes ] [ @argfiles ]
-```   
-![](https://images.velog.io/images/kwj1270/post/4293bd8f-7a3c-44d7-b59b-4d619777bc9b/complie.png)     
-      
-자바 컴파일러`(javac)`가             
-자바 소스코드`(.java)`를 읽어들여         
-자바 바이트코드`(.class)`로 변환시킨다.     
-      
-**잠깐!**      
-컴퓨터가 이해할 수 있는 언어가 아닌 JVM이 이해할 수 있는 언어로 표현했다.    
-이유는 각 OS마다 아키텍처가 달라 기계어를 해석한 결과가 다르기 때문이다.     
-때문에 자바 파일을 JVM이 이해할 수 있는 바이트코드로 변환 시키고       
-런타임시에 JVM에서 명령어를 직접 실행하거나 OS에 맞는 기계어로 변환환다.   
-`참고 :` https://quasarzone.com/bbs/qf_cmr/views/31834       
-    
-**컴파일 옵션**     
-     
-|커맨드|예시|설명|   
-|-----|---|---|  
-|-cp, -classpath|-classpath(cp) path<br>-cp `.; C:\my\dir` |컴파일시 필히 참조할 클래스의 경로 입력<br>컴파일 대상이 아닌 연관된 클래스의 경로<br>2개 입력 원할시 `;`으로 추가하면 된다.|
-|-d|-d directory(루트 경로)<br> -d `C:\my\dir`|클래스 파일이 생성될 루트 디렉토리 지정<br>자바 파일을 클래스 파일로 변환할 때 저장될 공간 지정<br>루트 디렉터리를 지정하므로 파일들은 패키지에 맞춰 하위에 추가된다.<br>즉, `루트 디렉터리\패키지 경로..\파일이름.class`로 생성|
-|-encoding|-encoding type<br>-encoding UTF-8|소스 파일에 사용된 문자열 인코딩을 설정.<br>옵션이 설정되어 있지 않으면, 기본적인 컨버터가 사용된다.|
-|-g|`-g:{lines, vars, source}:`<br>-g:none: 생성X|모든 디버깅 정보를 생성<br>옵션이 설정되어 있지 않으면<br>기본적으로, 라인 넘버만 생성한다.<br>lines은 라인정보<br>vars는 지역변수<br>sounce는 소스 파일 정보|
-|-deprecation|-deprecation|더 이상 사용되지 않는 클래스의 사용법 또는 재정의에 대한 설명을 표시<br>소스 코드내에서 사용된 deprecated API의 위치를 출력한다.|
-|-nowarn|-nowarn|파일에서 발생한 warning message를 생성시키지 않는다.|
-|-verbose|-verbose|컴파일러와 링커가 현재 어느 자바 소스파일이 컴파일되고 있고<br>어느 파일이 링크되고 있는지에 대한 정보를 출력한다.|
-|-sourcepath|-sourcepath path|자바 소스파일의 위치를 지정한다.|
-|**-source**|-source JavaVersion|지정한 JavaVersion의 클래스 파일을 생성한다.|
-|**-target**|-target VMVersion|지정한 VM version에 호환되게끔 클래스 파일을 생성한다.<br>-source와 같이 사용하면 좋다.|
-|-bootclasspath|-bootclasspath bootclasspath|특정한 bootstrap또는 확장 클래스를 지정할수 있다.<br>내장된 bootstrap말고<br>다른 플랫폼의 bootstrap과 확장 클래스를 통해서 컴파일한다.|
-|-extdirs|-extdirs path|특정 확장 디렉토리를 지정한다.<br>즉, 컴파일시에 기술한 디렉터리의 클래스 파일을 참조한다.<br>`;`을 통해 여러 경로를 지정할 수도 있다.|
-|-endorseddirs|-endorseddirs path|표준 경로의 위치를 재정의한다.|
-|-version|-version|버전 정보를 출력한다.|
-|-help|-help|표준 옵션의 개요를 인쇄합니다.|
-|-Werror|-Werror|경고가 발생하면 컴파일을 종료한다.|
-|-X|-X|비표준 옵션에 대한 정보를 표시하고 종료한다.|
 
-   
-# 실행하는 방법   
-> **Run :** 컴퓨터 프로그램을 실행         
-> **Runtime :** 컴퓨터 프로그램이 실행되고 있는 동안의 동작     
-     
-```cmd  
-> java [ options ] class [ arguments ]
-```      
-![](https://images.velog.io/images/kwj1270/post/cb5ec97d-cb09-46fe-898d-ef2d3821ccbf/runtime.png)   
-   
-JVM을 통해 OS에 맞는 기계어(Machine code)로 변환한다.  
-컴퓨터는 기계어(Machine code)를 해석하여 프로그램을 실행한다.      
-   
-**잠깐**     
-컴퓨터는 바이트코드를 해석할 수 없는 것인가?     
-바이트코드는 말 그대로 `바이트 단위로 이루어진 코드`이다.     
-반면, **컴퓨터**는 `0`과`1`로만 이루어진 **`비트 단위의 코드만 해석 가능하다.`**     
-
-**런타임 옵션**     
-    
-|커맨드|예시|설명|   
-|-----|---|---|  
-|-cp, -classpath|-classpath(cp) path<br>-cp `.; C:\my\dir` |컴파일시 필히 참조할 클래스의 경로 입력<br>컴파일 대상이 아닌 연관된 클래스의 경로<br>2개 입력 원할시 `;`으로 추가하면 된다.|
-|-jar|-jar JarfileName.jar|jar파일로 압축되어져 있는 자바 프로그램을 실행시킨다.<br>단, Jar파일안의 manifest라는 텍스트 파일에<br>Main-Class:classname 같은 형태의 텍스트 라인이 포함되어 있어야 한다.|
-|-verbose|-verbose<br>-verbose:class<br>-verbose:gc<br>-verbose:jni|자바프로그램 실행되어지는 정보를 화면에 출력해준다.<br>:class 로딩되어지는 각클래스들의 정보를 화면에 출력한다.<br>:gc garbage collection 이벤트를 화면에 출력한다.<br>:jni native 함수들과 다른 자바 native 인터페이스 사용에 대한 정보를 출력한다|
-|-D|-Dproperty=value<br>-Djava.library.path=. HelloWorld|시스템의 property 값을 설정한다.<br>자바VM에 지정된 속성을 실행시 -D옵션을 사용해서, 변경, 지정할수 있다.|    
-|-client|-client|자바 HotSpot Client VM을 선택한다. (디폴트 값이다)|
-|-server|-server|자바 HotSpot Server VM을 선택한다.|
-|-version|-version|현재 JVM의 버젼 정보만 출력한다|
-|-showversion|-showversion ClassFileName|현재 JVM의 버전 정보 및 자바 버전 정보를 출력할수 있다.|   
-    
 # 전체적인 과정   
      
 1. JVM은 OS로부터 프로그램이 필요로 하는 메모리를 할당받는다.         
@@ -396,3 +320,80 @@ javap -c Hello.class // 바이트코드를 op코드로 볼 수 있다.
 
 
 
+# 컴파일 하는 방법   
+> **Compile :** 사람이 이해할 수 있는 언어를 컴퓨터가 이해할 수 있는 언어로 바꿔주는 과정을 말한다.           
+> **Java에서는 :** `.java 파일`을 `.class 파일`로 변환하는 과정을 의미한다.           
+> 즉, 컴퓨터가 이해할 수 있는 언어가 아닌 JVM이 이해할 수 있는 코드로 변환하는 과정    
+     
+**`.java 파일` :** Java 언어로 작성한 파일     
+**`.class 파일` :** Java 파일을 JVM이 이해할 수 있는 언어로 변환한 파일     
+   
+```cmd     
+> javac [ options ] [ sourcefiles ] [ classes ] [ @argfiles ]
+```   
+![](https://images.velog.io/images/kwj1270/post/4293bd8f-7a3c-44d7-b59b-4d619777bc9b/complie.png)     
+      
+자바 컴파일러`(javac)`가             
+자바 소스코드`(.java)`를 읽어들여         
+자바 바이트코드`(.class)`로 변환시킨다.     
+      
+**잠깐!**      
+컴퓨터가 이해할 수 있는 언어가 아닌 JVM이 이해할 수 있는 언어로 표현했다.    
+이유는 각 OS마다 아키텍처가 달라 기계어를 해석한 결과가 다르기 때문이다.     
+때문에 자바 파일을 JVM이 이해할 수 있는 바이트코드로 변환 시키고       
+런타임시에 JVM에서 명령어를 직접 실행하거나 OS에 맞는 기계어로 변환환다.   
+`참고 :` https://quasarzone.com/bbs/qf_cmr/views/31834       
+    
+**컴파일 옵션**     
+     
+|커맨드|예시|설명|   
+|-----|---|---|  
+|-cp, -classpath|-classpath(cp) path<br>-cp `.; C:\my\dir` |컴파일시 필히 참조할 클래스의 경로 입력<br>컴파일 대상이 아닌 연관된 클래스의 경로<br>2개 입력 원할시 `;`으로 추가하면 된다.|
+|-d|-d directory(루트 경로)<br> -d `C:\my\dir`|클래스 파일이 생성될 루트 디렉토리 지정<br>자바 파일을 클래스 파일로 변환할 때 저장될 공간 지정<br>루트 디렉터리를 지정하므로 파일들은 패키지에 맞춰 하위에 추가된다.<br>즉, `루트 디렉터리\패키지 경로..\파일이름.class`로 생성|
+|-encoding|-encoding type<br>-encoding UTF-8|소스 파일에 사용된 문자열 인코딩을 설정.<br>옵션이 설정되어 있지 않으면, 기본적인 컨버터가 사용된다.|
+|-g|`-g:{lines, vars, source}:`<br>-g:none: 생성X|모든 디버깅 정보를 생성<br>옵션이 설정되어 있지 않으면<br>기본적으로, 라인 넘버만 생성한다.<br>lines은 라인정보<br>vars는 지역변수<br>sounce는 소스 파일 정보|
+|-deprecation|-deprecation|더 이상 사용되지 않는 클래스의 사용법 또는 재정의에 대한 설명을 표시<br>소스 코드내에서 사용된 deprecated API의 위치를 출력한다.|
+|-nowarn|-nowarn|파일에서 발생한 warning message를 생성시키지 않는다.|
+|-verbose|-verbose|컴파일러와 링커가 현재 어느 자바 소스파일이 컴파일되고 있고<br>어느 파일이 링크되고 있는지에 대한 정보를 출력한다.|
+|-sourcepath|-sourcepath path|자바 소스파일의 위치를 지정한다.|
+|**-source**|-source JavaVersion|지정한 JavaVersion의 클래스 파일을 생성한다.|
+|**-target**|-target VMVersion|지정한 VM version에 호환되게끔 클래스 파일을 생성한다.<br>-source와 같이 사용하면 좋다.|
+|-bootclasspath|-bootclasspath bootclasspath|특정한 bootstrap또는 확장 클래스를 지정할수 있다.<br>내장된 bootstrap말고<br>다른 플랫폼의 bootstrap과 확장 클래스를 통해서 컴파일한다.|
+|-extdirs|-extdirs path|특정 확장 디렉토리를 지정한다.<br>즉, 컴파일시에 기술한 디렉터리의 클래스 파일을 참조한다.<br>`;`을 통해 여러 경로를 지정할 수도 있다.|
+|-endorseddirs|-endorseddirs path|표준 경로의 위치를 재정의한다.|
+|-version|-version|버전 정보를 출력한다.|
+|-help|-help|표준 옵션의 개요를 인쇄합니다.|
+|-Werror|-Werror|경고가 발생하면 컴파일을 종료한다.|
+|-X|-X|비표준 옵션에 대한 정보를 표시하고 종료한다.|
+
+   
+# 실행하는 방법   
+> **Run :** 컴퓨터 프로그램을 실행         
+> **Runtime :** 컴퓨터 프로그램이 실행되고 있는 동안의 동작     
+     
+```cmd  
+> java [ options ] class [ arguments ]
+```      
+![](https://images.velog.io/images/kwj1270/post/cb5ec97d-cb09-46fe-898d-ef2d3821ccbf/runtime.png)   
+   
+JVM을 통해 OS에 맞는 기계어(Machine code)로 변환한다.  
+컴퓨터는 기계어(Machine code)를 해석하여 프로그램을 실행한다.      
+   
+**잠깐**     
+컴퓨터는 바이트코드를 해석할 수 없는 것인가?     
+바이트코드는 말 그대로 `바이트 단위로 이루어진 코드`이다.     
+반면, **컴퓨터**는 `0`과`1`로만 이루어진 **`비트 단위의 코드만 해석 가능하다.`**     
+
+**런타임 옵션**     
+    
+|커맨드|예시|설명|   
+|-----|---|---|  
+|-cp, -classpath|-classpath(cp) path<br>-cp `.; C:\my\dir` |컴파일시 필히 참조할 클래스의 경로 입력<br>컴파일 대상이 아닌 연관된 클래스의 경로<br>2개 입력 원할시 `;`으로 추가하면 된다.|
+|-jar|-jar JarfileName.jar|jar파일로 압축되어져 있는 자바 프로그램을 실행시킨다.<br>단, Jar파일안의 manifest라는 텍스트 파일에<br>Main-Class:classname 같은 형태의 텍스트 라인이 포함되어 있어야 한다.|
+|-verbose|-verbose<br>-verbose:class<br>-verbose:gc<br>-verbose:jni|자바프로그램 실행되어지는 정보를 화면에 출력해준다.<br>:class 로딩되어지는 각클래스들의 정보를 화면에 출력한다.<br>:gc garbage collection 이벤트를 화면에 출력한다.<br>:jni native 함수들과 다른 자바 native 인터페이스 사용에 대한 정보를 출력한다|
+|-D|-Dproperty=value<br>-Djava.library.path=. HelloWorld|시스템의 property 값을 설정한다.<br>자바VM에 지정된 속성을 실행시 -D옵션을 사용해서, 변경, 지정할수 있다.|    
+|-client|-client|자바 HotSpot Client VM을 선택한다. (디폴트 값이다)|
+|-server|-server|자바 HotSpot Server VM을 선택한다.|
+|-version|-version|현재 JVM의 버젼 정보만 출력한다|
+|-showversion|-showversion ClassFileName|현재 JVM의 버전 정보 및 자바 버전 정보를 출력할수 있다.|   
+    
