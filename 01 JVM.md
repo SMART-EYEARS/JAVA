@@ -180,7 +180,6 @@ Heap에 저장된 인스턴스가 참조되지 않거나 더 이상 사용되지
      * Eden 영역에 있는 값들을 Survivor 1영역에 복사     
      * 이 영역을 제외한 나머지 영역의 객체를 삭제한다.      
       
-
 ## JVM 동작 과정   
      
 1. JVM은 OS로부터 프로그램이 필요로 하는 메모리를 할당받는다.         
@@ -191,14 +190,10 @@ Heap에 저장된 인스턴스가 참조되지 않거나 더 이상 사용되지
 6. 해석된 바이트코드는 Runtime Data Areas에 배치되어 수행이 이루어진다.        
 7. 실행 과정 속에서 JVM은 필요에 따라     
 Thread Synchronization과 GC같은 관리작업을 수행한다.         
-    
-
-
-    
-# JDK와 JRE의 차이    
-      
+ 
+# 📘 JDK와 JRE    
 ![](https://images.velog.io/images/kwj1270/post/aeeea8a4-1004-47b7-8e36-7565831d61c3/jdk:jre.webp)    
-**JRE**       
+## 📖 JRE       
 > Java Runtime Environment       
    
 Java 프로그래밍 언어로 작성된 애플리케이션 및 응용 프로그램 실행을 위한   
@@ -212,7 +207,7 @@ Java 언어를 통해 애플리케이션이나 응용 프로그램을 직접 만
 * Java 프로그램을 실행하는 데 필요한 플러그인      
 * JVM, 코어 라이브러리 및 Java로 작성된 응용 프로그램 실행을 위한 구성요소 포함     
        
-**JDK**  
+## 📖 JDK  
 > Java Development Kit    
    
 자바의 모든 기능을 갖춘 [SDK](https://ko.wikipedia.org/wiki/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4_%EA%B0%9C%EB%B0%9C_%ED%82%A4%ED%8A%B8)로     
@@ -224,7 +219,7 @@ Java 언어를 통해 애플리케이션이나 응용 프로그램을 직접 만
 * JRE, API 클래스 세트, Java 컴파일러, 애플리케이션 제작에 필요한 파일 포함      
 
    
-# 라이브 강의   
+# JVM과 JDK   
 > **의문점 :**   
 > 스프링 프레임워크를 자바 14버전으로 만들었다 가정한다.      
 > 하지만 내가 사용하고 있는 버전은 8버전인데 호환이 되었다.    
@@ -271,34 +266,8 @@ complie 관련 옵션도 위 [링크](#컴파일-하는-방법)에서 확인하�
 * 즉, 최신 기능을 포함한 바이트코드로 변환되었다 생각하면 된다.       
 * 하지만, 모든 하위 버전이 가능한 것은 아니고 최소 버전이 지정되어 있다.    
    
-**바이트 코드 확인법**     
-```
-javap -c Hello.class // 바이트코드를 op코드로 볼 수 있다.   
-```    
-* `javap -c` 명령어를 통해 바이트코드를 확인할 수 있다.     
-* op코드 : [참조](https://ehpub.co.kr/tag/%EC%97%B0%EC%82%B0-%EC%A2%85%EB%A5%98op-code/)    
-* 1바이트이므로 2^8승. 즉, 256개의 명령어를 가진다.    
-       
-**잠깐**       
-* 사실 JVM은 파일이 바이트코드로 이루어져 있으면 실행시켜줄 수 있다.    
-* 프로그래밍 언어가 달라도 바이트코드로 변환만 해주면 JVM에서 동작할 수 있다.   
-* 그래서 코틀린, Groovy 등과 같이 다른 언어를 사용해도 실행시킬 수 있다.      
-* 우리는 오랜 기간 JVM을 사용하면서, 안정적이며,     
-여러가지 모니터링 툴, 커스터마이징 및 운영 노하우가 쌓였다.      
-* 때문에, JVM을 사용하는 것은 노하우와 툴을 적용하기에 좋다고 볼 수 있다.        
 
-  
-**추가적으로**       
-```xml
-<properties>
-		<java-version>1.8</java-version>
-</properties>
-```   
-* `pom.xml`의 태그 중에서 자바 버전과 관련된 태그가 있었다.        
-* Apache 서버 관련 설정을 할 때도 자바 버전을 바꾸는 설정이 있었다.     
-* 상위 버전 코드를 하위 버전에 맞추는게 가능하게 해준다는 것을 알 수 있다.    
-   
-   
+
 # 참고
 * [JVM 전체적인 내용](https://asfirstalways.tistory.com/158)    
 * [JVM 간략 정리](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Language/%5Bjava%5D%20%EC%9E%90%EB%B0%94%20%EA%B0%80%EC%83%81%20%EB%A8%B8%EC%8B%A0(Java%20Virtual%20Machine).md)   
@@ -309,83 +278,3 @@ javap -c Hello.class // 바이트코드를 op코드로 볼 수 있다.
 * [GC 내용 추가 참고](https://github.com/league3236/startJava/blob/master/live_study/week1.md)   
 * [JDK/JRE비교](https://hashcode.co.kr/questions/260/jdk%EC%99%80-jre%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%9D%B4-%EB%AD%94%EA%B0%80%EC%9A%94)      
 
-
-
-# 컴파일 하는 방법   
-> **Compile :** 사람이 이해할 수 있는 언어를 컴퓨터가 이해할 수 있는 언어로 바꿔주는 과정을 말한다.           
-> **Java에서는 :** `.java 파일`을 `.class 파일`로 변환하는 과정을 의미한다.           
-> 즉, 컴퓨터가 이해할 수 있는 언어가 아닌 JVM이 이해할 수 있는 코드로 변환하는 과정    
-     
-**`.java 파일` :** Java 언어로 작성한 파일     
-**`.class 파일` :** Java 파일을 JVM이 이해할 수 있는 언어로 변환한 파일     
-   
-```cmd     
-> javac [ options ] [ sourcefiles ] [ classes ] [ @argfiles ]
-```   
-![](https://images.velog.io/images/kwj1270/post/4293bd8f-7a3c-44d7-b59b-4d619777bc9b/complie.png)     
-      
-자바 컴파일러`(javac)`가             
-자바 소스코드`(.java)`를 읽어들여         
-자바 바이트코드`(.class)`로 변환시킨다.     
-      
-**잠깐!**      
-컴퓨터가 이해할 수 있는 언어가 아닌 JVM이 이해할 수 있는 언어로 표현했다.    
-이유는 각 OS마다 아키텍처가 달라 기계어를 해석한 결과가 다르기 때문이다.     
-때문에 자바 파일을 JVM이 이해할 수 있는 바이트코드로 변환 시키고       
-런타임시에 JVM에서 명령어를 직접 실행하거나 OS에 맞는 기계어로 변환환다.   
-`참고 :` https://quasarzone.com/bbs/qf_cmr/views/31834       
-    
-**컴파일 옵션**     
-     
-|커맨드|예시|설명|   
-|-----|---|---|  
-|-cp, -classpath|-classpath(cp) path<br>-cp `.; C:\my\dir` |컴파일시 필히 참조할 클래스의 경로 입력<br>컴파일 대상이 아닌 연관된 클래스의 경로<br>2개 입력 원할시 `;`으로 추가하면 된다.|
-|-d|-d directory(루트 경로)<br> -d `C:\my\dir`|클래스 파일이 생성될 루트 디렉토리 지정<br>자바 파일을 클래스 파일로 변환할 때 저장될 공간 지정<br>루트 디렉터리를 지정하므로 파일들은 패키지에 맞춰 하위에 추가된다.<br>즉, `루트 디렉터리\패키지 경로..\파일이름.class`로 생성|
-|-encoding|-encoding type<br>-encoding UTF-8|소스 파일에 사용된 문자열 인코딩을 설정.<br>옵션이 설정되어 있지 않으면, 기본적인 컨버터가 사용된다.|
-|-g|`-g:{lines, vars, source}:`<br>-g:none: 생성X|모든 디버깅 정보를 생성<br>옵션이 설정되어 있지 않으면<br>기본적으로, 라인 넘버만 생성한다.<br>lines은 라인정보<br>vars는 지역변수<br>sounce는 소스 파일 정보|
-|-deprecation|-deprecation|더 이상 사용되지 않는 클래스의 사용법 또는 재정의에 대한 설명을 표시<br>소스 코드내에서 사용된 deprecated API의 위치를 출력한다.|
-|-nowarn|-nowarn|파일에서 발생한 warning message를 생성시키지 않는다.|
-|-verbose|-verbose|컴파일러와 링커가 현재 어느 자바 소스파일이 컴파일되고 있고<br>어느 파일이 링크되고 있는지에 대한 정보를 출력한다.|
-|-sourcepath|-sourcepath path|자바 소스파일의 위치를 지정한다.|
-|**-source**|-source JavaVersion|지정한 JavaVersion의 클래스 파일을 생성한다.|
-|**-target**|-target VMVersion|지정한 VM version에 호환되게끔 클래스 파일을 생성한다.<br>-source와 같이 사용하면 좋다.|
-|-bootclasspath|-bootclasspath bootclasspath|특정한 bootstrap또는 확장 클래스를 지정할수 있다.<br>내장된 bootstrap말고<br>다른 플랫폼의 bootstrap과 확장 클래스를 통해서 컴파일한다.|
-|-extdirs|-extdirs path|특정 확장 디렉토리를 지정한다.<br>즉, 컴파일시에 기술한 디렉터리의 클래스 파일을 참조한다.<br>`;`을 통해 여러 경로를 지정할 수도 있다.|
-|-endorseddirs|-endorseddirs path|표준 경로의 위치를 재정의한다.|
-|-version|-version|버전 정보를 출력한다.|
-|-help|-help|표준 옵션의 개요를 인쇄합니다.|
-|-Werror|-Werror|경고가 발생하면 컴파일을 종료한다.|
-|-X|-X|비표준 옵션에 대한 정보를 표시하고 종료한다.|
-
-   
-# 실행하는 방법   
-> **Run :** 컴퓨터 프로그램을 실행         
-> **Runtime :** 컴퓨터 프로그램이 실행되고 있는 동안의 동작     
-     
-```cmd  
-> java [ options ] class [ arguments ]
-```      
-![](https://images.velog.io/images/kwj1270/post/cb5ec97d-cb09-46fe-898d-ef2d3821ccbf/runtime.png)   
-   
-JVM을 통해 OS에 맞는 기계어(Machine code)로 변환한다.  
-컴퓨터는 기계어(Machine code)를 해석하여 프로그램을 실행한다.      
-   
-**잠깐**     
-컴퓨터는 바이트코드를 해석할 수 없는 것인가?     
-바이트코드는 말 그대로 `바이트 단위로 이루어진 코드`이다.     
-반면, **컴퓨터**는 `0`과`1`로만 이루어진 **`비트 단위의 코드만 해석 가능하다.`**     
-
-**런타임 옵션**     
-    
-|커맨드|예시|설명|   
-|-----|---|---|  
-|-cp, -classpath|-classpath(cp) path<br>-cp `.; C:\my\dir` |컴파일시 필히 참조할 클래스의 경로 입력<br>컴파일 대상이 아닌 연관된 클래스의 경로<br>2개 입력 원할시 `;`으로 추가하면 된다.|
-|-jar|-jar JarfileName.jar|jar파일로 압축되어져 있는 자바 프로그램을 실행시킨다.<br>단, Jar파일안의 manifest라는 텍스트 파일에<br>Main-Class:classname 같은 형태의 텍스트 라인이 포함되어 있어야 한다.|
-|-verbose|-verbose<br>-verbose:class<br>-verbose:gc<br>-verbose:jni|자바프로그램 실행되어지는 정보를 화면에 출력해준다.<br>:class 로딩되어지는 각클래스들의 정보를 화면에 출력한다.<br>:gc garbage collection 이벤트를 화면에 출력한다.<br>:jni native 함수들과 다른 자바 native 인터페이스 사용에 대한 정보를 출력한다|
-|-D|-Dproperty=value<br>-Djava.library.path=. HelloWorld|시스템의 property 값을 설정한다.<br>자바VM에 지정된 속성을 실행시 -D옵션을 사용해서, 변경, 지정할수 있다.|    
-|-client|-client|자바 HotSpot Client VM을 선택한다. (디폴트 값이다)|
-|-server|-server|자바 HotSpot Server VM을 선택한다.|
-|-version|-version|현재 JVM의 버젼 정보만 출력한다|
-|-showversion|-showversion ClassFileName|현재 JVM의 버전 정보 및 자바 버전 정보를 출력할수 있다.|   
-    
- 
