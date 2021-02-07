@@ -168,14 +168,16 @@ Heap에 저장된 인스턴스가 참조되지 않거나 더 이상 사용하지
   Reflection을 사용하여 동적으로 클래스가 로딩되는 경우에 사용되며        
   Spring의 경우 내부적으로 Reflection 기능을 사용하기에 이 영역에 대한 고려가 필요하다.        
   
-  * New/Young 영역 :     
-  Eden : 객체들이 최초로 생성되는 공간      
-  survivor 0 / 1 : Eden에서 참조되는 객체들이 저장되는 공간       
-  * Old 영역 :     
-  New area에서 일정 시간 참고되고 있는, 살아남은 객체들이 저장되는 공간      
-  Eden 영역에 객체가 가득차게 되면 첫번째 GC가 발생       
-  Eden 영역에 있는 값들을 Survivor 1영역에 복사하고     
-  이 영역을 제외한 나머지 영역의 객체를 삭제한다.      
+* **New/Young 영역 :**     
+  Eden : 객체들이 최초로 생성되는 공간을 말한다.      
+  survivor: Eden에서 참조되는 객체들이 저장되는 공간을 말한다.         
+* **Old 영역 :**          
+  New area에서 일정 시간 참고되고 있는, 살아남은 객체들이 저장되는 공간이다.         
+  
+  * Eden 영역에 객체가 가득차게 되면    
+     * 첫번째 GC가 발생       
+     * Eden 영역에 있는 값들을 Survivor 1영역에 복사     
+     * 이 영역을 제외한 나머지 영역의 객체를 삭제한다.      
       
 
 ## JVM 동작 과정   
@@ -305,7 +307,6 @@ javap -c Hello.class // 바이트코드를 op코드로 볼 수 있다.
 * [바이트코드-tcpschool](http://www.tcpschool.com/java/java_intro_programming)   
 * [GC 내용 추가 참고](https://github.com/league3236/startJava/blob/master/live_study/week1.md)   
 * [JDK/JRE비교](https://hashcode.co.kr/questions/260/jdk%EC%99%80-jre%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%9D%B4-%EB%AD%94%EA%B0%80%EC%9A%94)      
-* [필자의 깃허브](https://github.com/kwj1270/TIL_JAVA/blob/master/JVM.md)  
 
 
 
