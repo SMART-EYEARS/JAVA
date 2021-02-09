@@ -13,8 +13,8 @@
 * 스택 기반의 가상 머신으로 LIFO 원칙으로 동작한다.           
     
 ## 📖 Write once, run anywhere         
-<img width="802" alt="스크린샷 2021-01-04 오후 12 21 12" src="https://user-images.githubusercontent.com/50267433/103498244-6101ee00-4e87-11eb-91ef-f3af5c0606e6.png">   
-     
+![WORA.png](./images/JVM/WORA.png)
+
 **플랫폼 종속성**   
 1. 기계어가 CPU마다 다르다.  
 2. 운영체제 API가 서로 다르다.
@@ -51,7 +51,7 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
       
 * CLI 기준 :  `javap -c FQCN_(.class 파일)`    
          
-![ByteCodeCLI.png](./images/ByteCodeCLI.png)	    
+![ByteCodeCLI.png](./images/JVM/ByteCodeCLI.png)	    
    
 
 * Mac + IntelliJ 기준 :              
@@ -59,12 +59,12 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
   2. `command + shift + a`를 누른다.  
   3. Actions 탭에서 `Show Bytecode`를 입력후 누른다.        
 
-![ByteCode.png](./images/ByteCode.png)
+![ByteCode.png](./images/JVM/ByteCode.png)
    
 
 # 📗 JVM 동작 과정과 구성 요소
 
-![JVMProcess.png](./images/JVMProcess.png)
+![JVMProcess.png](./images/JVM/JVMProcess.png)
 
 **JVM 동작 과정**   
 1. JVM은 OS로부터 프로그램이 필요로 하는 메모리를 할당받는다.         
