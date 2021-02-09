@@ -67,9 +67,19 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
 ![ByteCode.png](./images/ByteCode.png)
    
 
-# 📗 JVM 구성 요소 및 동작 과정
+# 📗 JVM 동작 과정과 구성 요소
 
 ![JVMProcess.png](./images/JVMProcess.png)
+
+**JVM 동작 과정**   
+1. JVM은 OS로부터 프로그램이 필요로 하는 메모리를 할당받는다.         
+2. JVM은 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.      
+3. 자바 컴파일러가 자바 소스코드를 읽어들여 자바 바이트코드로 변환시킨다.     
+4. Class Loader를 통해 class 파일들을 JVM으로 로딩한다.     
+5. 로딩된 class 파일들은 Execution engine을 통해 해석된다.        
+6. 해석된 바이트코드는 Runtime Data Areas에 배치되어 수행이 이루어진다.        
+7. 실행 과정 속에서 JVM은 필요에 따라     
+Thread Synchronization과 GC같은 관리작업을 수행한다.           
 
 **JVM 구성 요소**
 * Java source : 사용자가 정의한 자바 파일    
@@ -82,15 +92,7 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
 * JIT Compiler : 자바 바이트코드를 기계어로 변환시키는 역할     
 * Garbage Collect : 더 이상 사용되지 않는 메모리를 해제해주는 역할   
        
-**JVM 동작 과정**   
-1. JVM은 OS로부터 프로그램이 필요로 하는 메모리를 할당받는다.         
-2. JVM은 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.      
-3. 자바 컴파일러가 자바 소스코드를 읽어들여 자바 바이트코드로 변환시킨다.     
-4. Class Loader를 통해 class 파일들을 JVM으로 로딩한다.     
-5. 로딩된 class 파일들은 Execution engine을 통해 해석된다.        
-6. 해석된 바이트코드는 Runtime Data Areas에 배치되어 수행이 이루어진다.        
-7. 실행 과정 속에서 JVM은 필요에 따라     
-Thread Synchronization과 GC같은 관리작업을 수행한다.           
+
        
 ## 📖 Class Loader(클래스 로더)         
 * JVM내로 클래스`(.class)`를 로드하고, 링크를 통해 배치 작업을 수행하는 모듈.            
