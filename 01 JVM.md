@@ -298,7 +298,7 @@ UnsupportedClassVersionError: 클래스이름 has been compiled by a more recent
 [JIT 컴파일러 튜닝](https://velog.io/@youngerjesus/%EC%9E%90%EB%B0%94-JIT-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)        
 [we-hate-jvm-GarbageCollection](https://github.com/Road-of-CODEr/we-hate-jvm/tree/master/GarbageCollection)    
     
-# 참고
+# 😉 참고
 [백기선님, 스터디 할래](https://github.com/whiteship/live-study)     
 [자바 가상머신, JVM이란 무엇인가?](https://asfirstalways.tistory.com/158)         
 [JVM_스터디할래_jiny](https://jeongjin984.github.io/posts/JVM/)   
