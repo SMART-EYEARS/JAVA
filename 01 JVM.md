@@ -283,7 +283,8 @@ UnsupportedClassVersionError: 클래스이름 has been compiled by a more recent
 즉, **특정 옵션을 주면 상위 버전으로 컴파일 된 바이트 코드를 실행시킬 수 있다.**    
       
 ```linux
-C\:>javac -source 1.6 -target 1.6 -bootclasspath C:\jdk1.6.0\lib\rt.jar -extdirs "" OldCode.java
+C\:>javac -source 1.8 -target 1.8 Hello.java
+C\:>java java Hello
 ```   
          
 **그렇다면 상위 버전의 최신 기능은 사용하지 못하는걸까? 🤔**      
