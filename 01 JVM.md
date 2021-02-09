@@ -113,7 +113,49 @@ JIT Compiler가 컴파일하는 과정은 바이트코드를 인터프리팅하�
 일정 기준을 넘는다면 `JIT Compiler`가 `ByteCode`를 기계어로 변환하고 **Caching 해놓는다.**            
 이후, 같은 코드가 나온다면 **Caching을 사용하여 다시 번역할 필요 없이 해당 기계어를 가져와 사용한다.**           
 참고로, `Caching`의 위치는 `JVM`안의 `CodeCache`에 들어간다.           
-     
+   
+### Compiler 기술들    
+#### 🔖 Hot Spot Detection     
+JIT 컴파일러를 동작시키는 기술로,             
+JVM이 ByteCode를 해석하다가 중복이 발생한다고 판단되면 Byte코드를 기계어로 컴파일하는 방식이다.        
+
+**🤔 만약 중복된 코드가 아닌 모든 코드를 컴파일 하면 안되는 걸까?**        
+모든 코드를 컴파일 하는 방식의 수행 시간 자체는 빠르지만                  
+프로그램 크기가 커지고 기기별 이식성이 떨어진다는 문제점이 있다.           
+그렇기에 JVM에서는 기본으로 `Interpreter` 방식을 사용하지만,       
+여러번의 중복이 발생하는 경우에만 `Hot Spot Detection` 방식을 사용한다.    
+      
+#### 🔖 Method inlining
+Method inlining 은 JIT 컴파일러에서 수행하는 최적화 방법이다.     
+
+```java
+public void testAddPlusOne() {
+  int v1 = addPlusOne(2, 5);
+  int v2 = addPlusOne(7, 13);
+
+}
+public int addPlusOne(int a, int b) {
+  return a + b + 1;
+}
+```
+* 특정 메서드가 다른 메서드를 호출하는 형태로 정의 되었다 가정을 한다면      
+   
+```
+public void testAddPlusOne() {
+  int v1 = 2 + 5 + 1;
+  int v2 = 7 + 13 + 1
+}
+```
+컴파일러는 함수 호출을 함수 본문으로 대체하기로 결정할 수 있으므로 결과는 다음과 같이 효과적으로 표시됩니다.
+
+
+클래스 안에서 사용된 다른 클래스에 대해 method inlining을 수행함으로서    
+다른 메모리 공간에 있는 메소드에 대해 호출하는 것을 피할 수 있다.
+이걸 취소할 수도 있다.
+
+#### 🔖 reflection
+객체를 명시적으로 코드에서 new하지 않아도 임의의 객체를 동적으로 생성하고 메소드를 호출할수 있는 reflection은 자바 동적 클래스로딩의 핵심
+
      
 ### 📄 Garbage collector      
 메모리가 부족할 때 사용되지 않는 메모리를 해제해주며 메모리가 부족하거나 JVM이 한가할 때 동작한다.       
