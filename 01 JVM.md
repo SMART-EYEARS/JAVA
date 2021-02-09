@@ -148,11 +148,6 @@ public void testAddPlusOne() {
 ```
 JIT 컴파일러는 `Method inlining`를 통해 메서드 호출의 [오버 헤드](https://ko.wikipedia.org/wiki/%EC%98%A4%EB%B2%84%ED%97%A4%EB%93%9C)를 피할 수 있다.       
 
-
-#### 🔖 reflection
-객체를 명시적으로 코드에서 new하지 않아도 임의의 객체를 동적으로 생성하고 메소드를 호출할수 있는 reflection은 자바 동적 클래스로딩의 핵심
-
-     
 ### 📄 Garbage collector      
 메모리가 부족할 때 사용되지 않는 메모리를 해제해주며 메모리가 부족하거나 JVM이 한가할 때 동작한다.       
 즉, GC의 동작시간은 일정하게 정해져 있지 않기 때문에 언제 객체를 정리하는지는 알 수 없다.         
