@@ -294,11 +294,11 @@ UnsupportedClassVersionError: 클래스이름 has been compiled by a more recent
 * 즉, 최신 기능을 포함한 바이트코드로 변환되었다 생각하면 된다.            
 * 단, 모든 하위 버전이 가능한 것은 아니고 각 상위 버전마다 호환이 가능한 최소 하위 버전이 지정되어 있다는 점만 알아두자.           
           
-# 포함하지는 않았지만, 나중에 보면 좋을 내용들            
+# ✔ 포함하지는 않았지만, 나중에 보면 좋을 내용들            
 [JIT 컴파일러 튜닝](https://velog.io/@youngerjesus/%EC%9E%90%EB%B0%94-JIT-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)        
 [we-hate-jvm-GarbageCollection](https://github.com/Road-of-CODEr/we-hate-jvm/tree/master/GarbageCollection)    
     
-# 참고
+# 🙇🏻‍♂️참고
 [자바 가상머신, JVM이란 무엇인가?](https://asfirstalways.tistory.com/158)      
 [JVM_스터디할래_jiny](https://jeongjin984.github.io/posts/JVM/)
 [javac option-oracle doc](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html)    
