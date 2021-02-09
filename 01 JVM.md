@@ -67,10 +67,11 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
 ![ByteCode.png](./images/ByteCode.png)
    
 
-# 📗 JVM 구성 요소
+# 📗 JVM 구성 요소 및 동작 과정
 
 ![JVMProcess.png](./images/JVMProcess.png)
 
+**JVM 구성 요소**
 * Java source : 사용자가 정의한 자바 파일    
 * Compiler : 자바를 클래스 파일로 변환   
 * ByteCode : 클래스 파일들   
@@ -80,6 +81,16 @@ Java에서의 `ByteCode`는 JVM이 이해할 수 있는 언어로 변환된 `.cl
 * Interpreter : 자바 바이트코드를 명령어 단위로 읽고 해석하는 역할      
 * JIT Compiler : 자바 바이트코드를 기계어로 변환시키는 역할     
 * Garbage Collect : 더 이상 사용되지 않는 메모리를 해제해주는 역할   
+       
+**JVM 동작 과정**   
+1. JVM은 OS로부터 프로그램이 필요로 하는 메모리를 할당받는다.         
+2. JVM은 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.      
+3. 자바 컴파일러가 자바 소스코드를 읽어들여 자바 바이트코드로 변환시킨다.     
+4. Class Loader를 통해 class 파일들을 JVM으로 로딩한다.     
+5. 로딩된 class 파일들은 Execution engine을 통해 해석된다.        
+6. 해석된 바이트코드는 Runtime Data Areas에 배치되어 수행이 이루어진다.        
+7. 실행 과정 속에서 JVM은 필요에 따라     
+Thread Synchronization과 GC같은 관리작업을 수행한다.           
        
 ## 📖 Class Loader(클래스 로더)         
 * JVM내로 클래스`(.class)`를 로드하고, 링크를 통해 배치 작업을 수행하는 모듈.            
@@ -211,18 +222,7 @@ Heap에 저장된 인스턴스가 참조되지 않거나 더 이상 사용되지
   * 첫번째 GC가 발생       
   * Eden 영역에 있는 값들을 Survivor 1영역에 복사     
   * 이 영역을 제외한 나머지 영역의 객체를 삭제한다.      
-      
-## JVM 동작 과정   
-     
-1. JVM은 OS로부터 프로그램이 필요로 하는 메모리를 할당받는다.         
-2. JVM은 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.      
-3. 자바 컴파일러가 자바 소스코드를 읽어들여 자바 바이트코드로 변환시킨다.     
-4. Class Loader를 통해 class 파일들을 JVM으로 로딩한다.     
-5. 로딩된 class 파일들은 Execution engine을 통해 해석된다.        
-6. 해석된 바이트코드는 Runtime Data Areas에 배치되어 수행이 이루어진다.        
-7. 실행 과정 속에서 JVM은 필요에 따라     
-Thread Synchronization과 GC같은 관리작업을 수행한다.         
- 
+        
 # 📘 JDK와 JRE    
 ![](https://images.velog.io/images/kwj1270/post/aeeea8a4-1004-47b7-8e36-7565831d61c3/jdk:jre.webp)    
 ## 📖 JRE       
