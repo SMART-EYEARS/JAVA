@@ -126,8 +126,10 @@ JVM이 ByteCode를 해석하다가 중복이 발생한다고 판단되면 Byte�
 여러번의 중복이 발생하는 경우에만 `Hot Spot Detection` 방식을 사용한다.    
       
 #### 🔖 Method inlining
-Method inlining 은 JIT 컴파일러에서 수행하는 최적화 방법이다.     
-
+`Method inlining`은 JIT 컴파일러에서 수행하는 최적화 방법으로            
+자주 실행되는 메서드의 호출을 본문으로 대체하여             
+**런타임시에 컴파일된 소스 코드를 최적화**하는 방법이다.               
+      
 ```java
 public void testAddPlusOne() {
   int v1 = addPlusOne(2, 5);
@@ -138,7 +140,6 @@ public int addPlusOne(int a, int b) {
   return a + b + 1;
 }
 ```
-* 특정 메서드가 다른 메서드를 호출하는 형태로 정의 되었다 가정을 한다면      
    
 ```
 public void testAddPlusOne() {
@@ -146,12 +147,8 @@ public void testAddPlusOne() {
   int v2 = 7 + 13 + 1
 }
 ```
-컴파일러는 함수 호출을 함수 본문으로 대체하기로 결정할 수 있으므로 결과는 다음과 같이 효과적으로 표시됩니다.
+JIT 컴파일러는 `Method inlining`를 통해 메서드 호출의 [오버 헤드](https://ko.wikipedia.org/wiki/%EC%98%A4%EB%B2%84%ED%97%A4%EB%93%9C)를 피할 수 있다.       
 
-
-클래스 안에서 사용된 다른 클래스에 대해 method inlining을 수행함으로서    
-다른 메모리 공간에 있는 메소드에 대해 호출하는 것을 피할 수 있다.
-이걸 취소할 수도 있다.
 
 #### 🔖 reflection
 객체를 명시적으로 코드에서 new하지 않아도 임의의 객체를 동적으로 생성하고 메소드를 호출할수 있는 reflection은 자바 동적 클래스로딩의 핵심
