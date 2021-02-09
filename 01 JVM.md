@@ -113,7 +113,7 @@ JIT Compiler가 컴파일하는 과정은 바이트코드를 인터프리팅하�
 일정 기준을 넘는다면 `JIT Compiler`가 `ByteCode`를 기계어로 변환하고 **Caching 해놓는다.**            
 이후, 같은 코드가 나온다면 **Caching을 사용하여 다시 번역할 필요 없이 해당 기계어를 가져와 사용한다.**           
 참고로, `Caching`의 위치는 `JVM`안의 `CodeCache`에 들어간다.           
-   
+    
 ### 📄 Compiler 기술들    
 #### 🔖 Hot Spot Detection     
 JIT 컴파일러를 동작시키는 기술로,             
@@ -306,13 +306,13 @@ complie 관련 옵션도 위 [링크](#컴파일-하는-방법)에서 확인하�
 * 옵션 컴파일로 8 버전에서 인식하는 바이트코드를 만드는 것 뿐이다.   
 * 즉, 최신 기능을 포함한 바이트코드로 변환되었다 생각하면 된다.       
 * 하지만, 모든 하위 버전이 가능한 것은 아니고 최소 버전이 지정되어 있다.    
-   
-
+    
+# 포함하지 않은 내용     
+[JIT 컴파일러 튜닝](https://velog.io/@youngerjesus/%EC%9E%90%EB%B0%94-JIT-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)        
+[GC 튜닝](https://velog.io/@youngerjesus/%EC%9E%90%EB%B0%94-%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%EC%85%98)     
 
 # 참고
-* [JVM 전체적인 내용](https://asfirstalways.tistory.com/158)    
-* [javac option-oracle doc](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html)    
-* [javac option-blog](http://sjava.net/2008/02/javac-%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98-%EC%98%B5%EC%85%98-%EC%A0%95%EB%A6%AC/)   
-* [바이트코드-위키](https://ko.wikipedia.org/wiki/%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%BD%94%EB%93%9C)  
-* [바이트코드-tcpschool](http://www.tcpschool.com/java/java_intro_programming)   
+[JVM 전체적인 내용](https://asfirstalways.tistory.com/158)      
+[](https://jeongjin984.github.io/posts/JVM/)
+[javac option-oracle doc](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html)    
 
