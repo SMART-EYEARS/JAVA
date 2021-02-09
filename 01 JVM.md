@@ -114,7 +114,7 @@ JIT Compiler가 컴파일하는 과정은 바이트코드를 인터프리팅하�
 이후, 같은 코드가 나온다면 **Caching을 사용하여 다시 번역할 필요 없이 해당 기계어를 가져와 사용한다.**           
 참고로, `Caching`의 위치는 `JVM`안의 `CodeCache`에 들어간다.           
    
-### Compiler 기술들    
+### 📄 Compiler 기술들    
 #### 🔖 Hot Spot Detection     
 JIT 컴파일러를 동작시키는 기술로,             
 JVM이 ByteCode를 해석하다가 중복이 발생한다고 판단되면 Byte코드를 기계어로 컴파일하는 방식이다.        
@@ -140,8 +140,7 @@ public int addPlusOne(int a, int b) {
   return a + b + 1;
 }
 ```
-   
-```
+```java
 public void testAddPlusOne() {
   int v1 = 2 + 5 + 1;
   int v2 = 7 + 13 + 1
