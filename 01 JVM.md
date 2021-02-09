@@ -220,7 +220,7 @@ Heap에 저장된 인스턴스가 참조되지 않거나 더 이상 사용되지
   * 이 영역을 제외한 나머지 영역의 객체를 삭제한다.      
         
 # 📘 JDK와 JRE    
-![](https://images.velog.io/images/kwj1270/post/aeeea8a4-1004-47b7-8e36-7565831d61c3/jdk:jre.webp)    
+![JDKAndJRE.png](./images/JVM/JDKAndJRE.png)
 ## 📖 JRE       
 > Java Runtime Environment       
    
