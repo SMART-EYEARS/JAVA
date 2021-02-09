@@ -305,13 +305,11 @@ complie 관련 옵션도 위 [링크](#컴파일-하는-방법)에서 확인하�
 * 옵션 컴파일로 8 버전에서 인식하는 바이트코드를 만드는 것 뿐이다.   
 * 즉, 최신 기능을 포함한 바이트코드로 변환되었다 생각하면 된다.       
 * 하지만, 모든 하위 버전이 가능한 것은 아니고 최소 버전이 지정되어 있다.    
-    
-# 포함하지 않은 내용     
+       
+# 포함하지는 않았지만, 나중에 보면 좋을 내용들          
 [JIT 컴파일러 튜닝](https://velog.io/@youngerjesus/%EC%9E%90%EB%B0%94-JIT-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)        
-[GC 튜닝](https://velog.io/@youngerjesus/%EC%9E%90%EB%B0%94-%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%EC%85%98)     
-
+    
 # 참고
-[JVM 전체적인 내용](https://asfirstalways.tistory.com/158)      
-[](https://jeongjin984.github.io/posts/JVM/)
+[자바 가상머신, JVM이란 무엇인가?](https://asfirstalways.tistory.com/158)      
+[JVM_스터디할래_jiny](https://jeongjin984.github.io/posts/JVM/)
 [javac option-oracle doc](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html)    
-
