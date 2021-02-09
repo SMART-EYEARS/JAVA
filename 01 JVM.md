@@ -299,6 +299,7 @@ UnsupportedClassVersionError: 클래스이름 has been compiled by a more recent
 [we-hate-jvm-GarbageCollection](https://github.com/Road-of-CODEr/we-hate-jvm/tree/master/GarbageCollection)    
     
 # 🙇🏻‍♂️ 참고
-[자바 가상머신, JVM이란 무엇인가?](https://asfirstalways.tistory.com/158)      
-[JVM_스터디할래_jiny](https://jeongjin984.github.io/posts/JVM/)
-[javac option-oracle doc](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html)    
+[백기선님, 스터디 할래](https://github.com/whiteship/live-study)     
+[자바 가상머신, JVM이란 무엇인가?](https://asfirstalways.tistory.com/158)         
+[JVM_스터디할래_jiny](https://jeongjin984.github.io/posts/JVM/)   
+[javac option-oracle doc](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/javac.html)       
